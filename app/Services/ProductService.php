@@ -17,6 +17,10 @@ class ProductService implements ProductServiceInterface
     // ...existing code...
     /**
      * Create a new product and handle images
+     *
+     * @param array $data Data produk
+     * @param array $images Daftar gambar produk
+     * @return mixed Produk yang dibuat
      */
     public function store(array $data, array $images = [])
     {
