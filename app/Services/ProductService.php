@@ -35,6 +35,12 @@ class ProductService implements ProductServiceInterface
 
     /**
      * Update existing product and handle images
+     *
+     * @param mixed $product Produk yang akan diupdate
+     * @param array $data Data baru produk
+     * @param array $images Daftar gambar baru
+     * @param array $deleteImageIds Daftar ID gambar yang dihapus
+     * @return mixed Produk yang telah diupdate
      */
     public function update($product, array $data, array $images = [], array $deleteImageIds = [])
     {
