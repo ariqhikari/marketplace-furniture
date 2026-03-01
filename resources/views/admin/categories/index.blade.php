@@ -29,6 +29,7 @@
                 <tr>
                     <th width="50">#</th>
                     <th>Nama</th>
+                    <th>Sub Kategori</th>
                     <th>Slug</th>
                     <th>Produk</th>
                     <th>Status</th>
@@ -40,6 +41,7 @@
                 <tr>
                     <td>{{ $loop->iteration + ($categories->currentPage() - 1) * $categories->perPage() }}</td>
                     <td>{{ $category->name }}</td>
+                    <td>{{ $category->subCategory?->name ?? '-' }}</td>
                     <td>{{ $category->slug }}</td>
                     <td>{{ $category->products_count }}</td>
                     <td>

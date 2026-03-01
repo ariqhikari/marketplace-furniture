@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
@@ -46,5 +47,10 @@ class Category extends Model
             return asset('storage/' . $this->image);
         }
         return 'https://placehold.co/400x400/e9ecef/495057?text=' . urlencode($this->name);
+    }
+
+    public function subCategory(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }

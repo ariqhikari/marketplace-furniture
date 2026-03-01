@@ -16,7 +16,9 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Category::withCount('products');
+        $query = Category::with(['subCategory'])->withCount(['products']);
+
+        // dd($query);
 
         if ($search = $request->input('search')) {
             $query->where('name', 'like', "%{$search}%");
@@ -29,7 +31,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('admin.categories.create');
+        $categories = Category::active()->get();
+        return view('admin.categories.create', compact('categories'));
     }
 
     public function store(CategoryRequest $request)
